@@ -1,5 +1,6 @@
 import Header from "./components/Header";
 import Tasks from "./components/Task"
+import AddTask from "./components/AddTask"
 import {useState} from 'react'
 
 function App() {
@@ -31,10 +32,18 @@ function App() {
 		))
 	}  
 
+	const addTask= (task) => {
+		const id = Math.floor(Math.random()*10000) +1
+		const newTask = {id, ...task}
+		setTasks([...tasks, newTask])
+
+	}
+
 	return (
-	<div className="Container">
+	<div className="container">
 		{/* <h1>Hello from React</h1> */}
 		<Header title="Tracker App"/>
+		<AddTask onAdd={addTask}/>
 		<Tasks tasks={tasks} deleteTask={deleteTask} toggleReminder={toggleReminder}/>
 	</div>
 	);
@@ -42,3 +51,4 @@ function App() {
 
 
 export default App;
+ 
