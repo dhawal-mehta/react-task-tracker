@@ -1,0 +1,5 @@
+in react 16.8 we can use functional components with hooks.
+
+1. useState:-
+2. useEffect:- 
+3. useContext, useReducer, useRef :- 
