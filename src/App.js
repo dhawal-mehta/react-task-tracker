@@ -24,6 +24,15 @@ function App() {
 			reminder: false
 		}
 	])
+
+	const [show, setShow] = useState(false)
+
+	const toggleForm = ()=>{
+		console.log(show, !show)
+		setShow(show?false:true)
+	}
+
+
 	const deleteTask = (id) =>{
 		setTasks(tasks.filter((task)=> task.id !== id ))
 	}
@@ -43,7 +52,7 @@ function App() {
 	<div className="container">
 		{/* <h1>Hello from React</h1> */}
 		<Header title="Tracker App"/>
-		<AddTask onAdd={addTask}/>
+		<AddTask onAdd={addTask} show={show} toggleForm={toggleForm}/>
 		<Tasks tasks={tasks} deleteTask={deleteTask} toggleReminder={toggleReminder}/>
 	</div>
 	);

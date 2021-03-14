@@ -1,6 +1,6 @@
 import {useState} from 'react'
 
-const AddTask = ({onAdd}) => {
+const AddTask = ({onAdd,toggleForm , show}) => {
     const [text, setText] = useState("")
     const [day, setDay] = useState("")
     const [reminder, setReminder] = useState(false)
@@ -20,10 +20,14 @@ const AddTask = ({onAdd}) => {
         setReminder(false)
     }
 
-    return (
-        <form className='add-form' onSubmit={onSubmit}>
-            <div className='form-control'>
 
+    return (
+        <>
+        <button className="btn btn-block" onClick={toggleForm}>{show?"Hide Form":"Show Form"}</button>
+        {show === true ?
+        (<form className='add-form' onSubmit={onSubmit}>
+            <div className='form-control'>
+ 
                 <div className="form-control">
                     <label>Task</label>
                     <input type="text" placeholder="Add Task" value={text} onChange={(e)=> setText(e.target.value)}/>
@@ -42,7 +46,11 @@ const AddTask = ({onAdd}) => {
                 <input type="submit" value="Save Task" className="btn btn-block"/>
 
             </div>
-        </form>
+        </form>):
+        (
+            <div style={{marginBottom: "40px"}}></div>
+        )}
+        </>
     )
 }
 
