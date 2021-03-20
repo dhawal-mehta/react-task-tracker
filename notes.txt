@@ -1,5 +1,14 @@
 in react 16.8 we can use functional components with hooks.
 
-1. useState:-
-2. useEffect:- 
+Q1 what is a hook?
+    hooks are functions that let us "hook into" React state and lifecycle features from function components.
+
+Q2 what is a state?
+    state is a value that could be shared by multiple components
+
+1. useState:- is a hook that is used to  "hook"  in a var 
+2. useEffect:-
+        we useEffect to tell r eact to run your "effect function" after flushing changes to the DOM
+        React runs the effects after every render 
+
 3. useContext, useReducer, useRef :- 

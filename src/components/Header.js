@@ -2,7 +2,7 @@ import Button from './Button';
 
 const Header = ({title}) => {
     const onClick = () => {
-        alert("This is a Todo App. \n Click on show Form \n then fill form and save entry to ToDo list.  ");
+        alert("To Add task in to do List\n1. Click on show form \n2. Save entry to tracker list   ");
     }
     return (
         <header className='header'>  
