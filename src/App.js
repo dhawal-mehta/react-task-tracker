@@ -1,7 +1,10 @@
 import Header from "./components/Header";
 import Tasks from "./components/Task"
 import AddTask from "./components/AddTask"
+import Footer from "./components/Footer"
+import About from "./components/About"
 import {useState, useEffect} from 'react'
+import { BrowserRouter as Router, Route} from 'react-router-dom'
 
 
 
@@ -29,7 +32,6 @@ function App() {
 	}
 
 	const toggleForm = ()=>{
-		// console.log(show, !show)
 		setShow(show?false:true)
 	}
 
@@ -38,6 +40,7 @@ function App() {
 		await fetch(`${dbURL}/${id}`,{method: 'DELETE'})
 		setTasks(tasks.filter((task)=> task.id !== id ))
 	}
+
 	
  	const toggleReminder = async (id) =>{
 		const task = await fetch(`${dbURL}/${id}`)
@@ -46,7 +49,7 @@ function App() {
 		const updatedTask = {...data, reminder: !data.reminder}
 
 		const res = await fetch(`${dbURL}/${id}`,
-		{method: 'PUT',
+		    {method: 'PUT',
 			headers:{
 				'Content-type': 'application/json'
 			},
@@ -76,12 +79,23 @@ function App() {
 	}
 
 	return (
-	<div className="container">
-		{/* <h1>Hello from React</h1> */}
-		<Header title="Tracker App"/>
-		<AddTask onAdd={addTask} show={show} toggleForm={toggleForm}/>
-		<Tasks tasks={tasks} deleteTask={deleteTask} toggleReminder={toggleReminder}/>
-	</div>
+	<Router>
+		<div className="container">
+			{/* <h1>Hello from React</h1> */}
+			<Header title="Tracker App"/>
+			
+			<Route path='/' exact render={(props) =>( 
+				<>
+					<AddTask onAdd={addTask} show={show} toggleForm={toggleForm}/>
+					<Tasks tasks={tasks} deleteTask={deleteTask} toggleReminder={toggleReminder}/>
+				</>
+			)} />
+			<Route path='/about' component={About} />
+
+			<Footer />
+		</div>
+	</Router>
+
 	);
 }
 

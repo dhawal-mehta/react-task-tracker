@@ -8,7 +8,23 @@ Q2 what is a state?
 
 1. useState:- is a hook that is used to  "hook"  in a var 
 2. useEffect:-
-        we useEffect to tell r eact to run your "effect function" after flushing changes to the DOM
+        we useEffect to tell react to run your "effect function" after flushing changes to the DOM
         React runs the effects after every render 
 
 3. useContext, useReducer, useRef :- 
+
+4. Hooks used in project
+    a. useState
+    b. useEffect
+
+5. states used in project
+    a. show :- show or hide from
+    b. task :- list of tasks
+6. staes used in form:
+    a. text:- name of task
+    b. day:- to tell which day in end day 
+    c. reminder :- for green line
+
+6. routes used in project   
+    a. "/" :- for forms and list of tasks
+    b. "/about" :- for about page
